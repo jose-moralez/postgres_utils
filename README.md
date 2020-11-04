@@ -18,8 +18,4 @@ POSTGRES_USER_{SERVER} =
 POSTGRES_PASSWORD_{SERVER} =
 ```
 
-Then you can create a connection to that server with the following:
-
-```
-con = create_connection('server', '.env')
-```
+And follow the documentation on https://jose-moralez.github.io/postgres_utils/

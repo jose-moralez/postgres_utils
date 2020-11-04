@@ -1,6 +1,6 @@
 ---
 
-title: Title
+title: Core
 
 
 keywords: fastai
@@ -88,7 +88,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="append_dataframe_to_table" class="doc_header"><code>append_dataframe_to_table</code><a href="https://github.com/jose-moralez/postgres_utils/tree/master/postgres_utils/core.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>append_dataframe_to_table</code>(<strong><code>conn</code></strong>:<code>connection</code>, <strong><code>table</code></strong>:<code>str</code>, <strong><code>df</code></strong>:<code>DataFrame</code>)</p>
+<h4 id="append_df_to_table" class="doc_header"><code>append_df_to_table</code><a href="https://github.com/jose-moralez/postgres_utils/tree/master/postgres_utils/core.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>append_df_to_table</code>(<strong><code>conn</code></strong>:<code>connection</code>, <strong><code>table</code></strong>:<code>str</code>, <strong><code>df</code></strong>:<code>DataFrame</code>)</p>
 </blockquote>
 <p>Append a dataframe to an existing postgresql table.</p>
 
@@ -114,7 +114,7 @@ nb_path: "nbs/00_core.ipynb"
 <p>This can be used with a connection context manager to execute the append in a transaction, like so:</p>
 
 <pre><code>with create_connection('server', 'path/to/.env') as conn:
-    append_dataframe_to_table(conn, 'table_name', df)</code></pre>
+    append_df_to_table(conn, 'table_name', df)</code></pre>
 
 </div>
 </div>

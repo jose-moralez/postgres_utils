@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Title
+      title: Core
       url: core.html
     output: web
     title: postgres_utils

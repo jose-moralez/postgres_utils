@@ -4,7 +4,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"Connection": "00_core.ipynb",
          "create_connection": "00_core.ipynb",
-         "append_dataframe_to_table": "00_core.ipynb",
+         "append_df_to_table": "00_core.ipynb",
          "update_table_from_df": "00_core.ipynb"}
 
 modules = ["core.py"]
