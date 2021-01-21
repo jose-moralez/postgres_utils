@@ -1,21 +1,27 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+
     - uses: actions/setup-python@v1
       with:
         python-version: '3.7'
         architecture: 'x64'
+
     - name: Install the library
       run: |
         pip install nbdev jupyter
         pip install -e .
+
     - name: Read all notebooks
       run: |
         nbdev_read_nbs
+
     - name: Check if all notebooks are cleaned
       run: |
         echo "Check we are starting with clean git checkout"
@@ -25,9 +31,24 @@ jobs:
         echo "Check that strip out was unnecessary"
         git status -s # display the status to see which nbs need cleaning up
         if [ -n "$(git status -uno -s)" ]; then echo -e "!!! Detected unstripped out notebooks\n!!!Remember to run nbdev_install_git_hooks"; false; fi
+
     - name: Check if there is no diff library/notebooks
       run: |
         if [ -n "$(nbdev_diff_nbs)" ]; then echo -e "!!! Detected difference between the notebooks and the library"; false; fi
+
+    - name: Start PostgreSQL
+      run: |
+        sudo systemctl start postgresql.service
+        pg_isready
+
+    - name: Create user and database on PostgresSQL
+      run: |
+        sudo -u postgres psql --command "CREATE USER jose PASSWORD 'mypwd';"
+        sudo -u postgres createdb test
+        sudo -u postgres psql -d test --command "CREATE TABLE test_table(x int, y char(3));"
+        sudo -u postgres psql -d test --command "ALTER TABLE test_table OWNER to jose;"
+
     - name: Run tests
       run: |
         nbdev_test_nbs
+

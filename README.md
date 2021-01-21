@@ -18,4 +18,4 @@ POSTGRES_USER_{SERVER} =
 POSTGRES_PASSWORD_{SERVER} =
 ```
 
-And follow the documentation on https://jose-moralez.github.io/postgres_utils/
+And follow the documentation on https://jose-moralez.github.io/postgres_utils/core.html

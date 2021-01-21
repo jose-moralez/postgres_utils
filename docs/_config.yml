@@ -1,7 +1,7 @@
-repository: jose-moralez/nbdev_template
+repository: jose-moralez/postgres_utils
 output: web
-topnav_title: nbdev_template
-site_title: nbdev_template
+topnav_title: postgres_utils
+site_title: postgres_utils
 company_name: Grupo Abraxas
 description: Utilities for interacting with postgresql databases
 # Set to false to disable KaTeX math
